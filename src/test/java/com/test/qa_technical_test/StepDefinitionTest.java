@@ -50,6 +50,7 @@ public class StepDefinitionTest {
 	public void i_make_a_POST_request_to(String endpoint) throws Throwable {
 		System.out.println("api endpoint--->" + endpoint);
 		baseURL = loginAPI.buildEndpoint(endpoint);
+		System.out.println("api endpoint--->" + endpoint);
 
 	}
 
