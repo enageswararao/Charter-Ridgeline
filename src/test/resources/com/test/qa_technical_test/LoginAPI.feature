@@ -17,12 +17,14 @@ Feature: Login  As a user with valid Account   I want to login   So that I can p
     
       #| Existing user | christopher_zarconi | SongMore7 | 106260 | christopher_zarconi | christopher_zarconi | null         | PR     | christopher_zarconi |     1 |
 
+
 Scenario Outline: Validate login with Invalid User
   Given A username "<username>" and password "<password>"
    When I make a POST request to "/auth/login"
-  Then The response message is "<message>"
-Examples:
-| username      | password  | message             |
-| invalid       | test1234! | Invalid User        |
-| qaTest11      | invalid12 | Invalid User        |
-|               |           | Missing Credentials |
+   Then The response status code should be "<code>"
+   Then The response message is "<message>"
+ Examples:
+ | username      | password  | code  | message             |
+ | invalid       | test1234! | 401   | Invalid User        |
+ | qaTest11      | invalid12 | 401   | Invalid User        |
+ |               |           | 405   | Missing Credentials |
