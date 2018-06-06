@@ -20,7 +20,6 @@ Scenario Outline: Validate login with Invalid User
    When I make a POST request to "/auth/login"
    Then The response status code should be "<code>"
    Then The response message is "<message>"
-
 Examples:
  | username      | password  | code  | message             |
  | invalid       | test1234! | 401   | Invalid User        |
